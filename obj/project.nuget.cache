@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "OKSAnHtJkhHp11t37p9BUt2k+9sI0WMnVUJ0Q9vJb/ypngDeWty9EQqwzxSEnuQskfj66ZRnLM6hD1HVdsy42w==",
+  "success": true,
+  "projectFilePath": "D:\\Projects\\dotnet\\mvc\\CsvDlDbData\\CsvDlDbData.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\brije\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
+    "C:\\Users\\brije\\.nuget\\packages\\npgsql\\5.0.5\\npgsql.5.0.5.nupkg.sha512",
+    "C:\\Users\\brije\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}

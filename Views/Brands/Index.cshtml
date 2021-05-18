@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Brands</h1>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                Brands Listview | <a asp-controller="Brands" asp-action="Download">Download</a>
+            </div>
+            <div class="card-body">
+                <table id="datatable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NAME</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            loadBrands();
+
+        });
+
+        function loadBrands() {
+
+            var data = {};
+
+            oTable = $('#datatable').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "bDestroy": true,
+                "ajax": {
+                    url: "/Brands/LoadData",
+                    type: "post",
+                    contentType: 'application/x-www-form-urlencoded',
+                    data: data,
+                },
+                "initComplete": function () {
+
+                    $('#tbl-datatable_filter input').unbind();
+
+                    $('#tbl-datatable_filter input').bind('keyup', function (e) {
+                        if (e.keyCode == 13) {
+                            oTable.search(this.value).draw();
+                        }
+                    });
+
+                },
+                "columns": [
+                    {
+                        "data": "id"
+                    },
+                    {
+                        "data": "brand_name"
+                    }
+                ]
+
+            });
+
+        }
+
+        function downloadExcel() {
+            var data = {}
+
+            $.ajax({
+                url: "/Brands/Download",
+                type: "post",
+                contentType: 'application/x-www-form-urlencoded',
+                data: data,
+                success: function (response) {
+
+                    console.log(response);
+
+                }
+            });
+        }
+
+    </script>
+
+}
